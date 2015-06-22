@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="content">
+            <div class="halfWidth">
+                <h2>Avaiable tasks:</h2>
+
+                <ul id="tasks" class="taskList">
+                    
+                </ul>
+
+                <select id="sort">
+                    <option value="1">
+                        Sort by oldest task
+                    </option>
+                    <option value="2">
+                        Sort by most complex
+                    </option>
+                    <option value="3">
+                        Sort by least complex
+                    </option>
+                </select>
+                
+                <input class="button center" type="button" id="getTasks" value="Get tasks"/>
+            </div>
+
+            <div class="halfWidth">
+                <h2>Tasks being solved by you:</h2>
+                <ul id="solvingTasks" class="taskList">
+                </ul>
+            </div>
+
+        </div>
+        <!-- Scripts -->
+        <script src="lib/jquery-1.11.3.min.js"></script>
+        <script src="js/client.js"></script>
+        <script src="js/ui.js"></script>
+        <script src='http://localhost:3000/socket.io/socket.io.js'></script>
+        <script>
+            var socket = io.connect('http://localhost:3000');
+
+            client = new Client(socket);           
+            gui = new UI();
+
+            socket.on('welcome', function(data) {
+                console.log('Server says hello!');
+            });
+
+            socket.on('error', console.error.bind(console));
+            socket.on('message', console.log.bind(console));
+        </script>
+    </body>
+</html>
