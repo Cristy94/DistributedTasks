@@ -7,8 +7,8 @@
 	socket.on('requestTasks', function(orderBy) )
 ```
 - Param orderBy - The ordering criteria.
-- Returns the list of available tasks. 
-- 
+- Returns the list of available tasks.
+
 ```javascript
     socket.on('solveTask', function(data) )
 ```
@@ -20,6 +20,7 @@
     socket.on('asignTask', function(taskID) 	   
 ```
 - Tries to asign the given task to the socket. If the asignment is successful, the task is returned. Otherwise and invalidTask event is sent.
+
 #####taskManager.js
 
 ```javascript
@@ -31,21 +32,21 @@
     taskManager.prototype.getTaskByID = function(taskID)
 ```
 - Return the task object that has the given taskID.
-- Param {Number} taskID - The ID of the task to receive
-- Returns {Object} - The task object.
+- Param `{Number}` taskID - The ID of the task to receive
+- Returns `{Object}` - The task object.
 
 ```javascript	    
     taskManager.prototype.canAsign = function(taskID) 
 ```
 - Check if the given task is still valid.
-- Param {Number} taskID - The ID of the task being checked
-- Returns {Boolean} - True if the task can be asigned.
+- Param `{Number}` taskID - The ID of the task being checked
+- Returns `{Boolean}` - True if the task can be asigned.
 
 ```javascript		
     taskManager.prototype.solveTask = function(taskID, result) 
 ```
 - Mark the task as solved by removing it from the task list
-- Param {Number} taskID - The ID of the task that was solved
+- Param `{Number}` taskID - The ID of the task that was solved
 	
 #####Client.js
 
@@ -60,32 +61,32 @@
 - Request the list of available tasks
 - Client.prototype.asignTask = function(taskID)  
 - Ask to be asigned the task taskID
-- Param  {Number} taskID - the ID of the task to be asigned to
+- Param  `{Number}` taskID - the ID of the task to be asigned to
 
 ```javascript	
     Client.prototype.solveTask = function(taskID, result)  
 ```	    
 - Send the result of the completed task, taskID.
-- Param  {[type]} taskID - The ID of the solved task
-- Param  {Object} result - The result of the task's execution
+- Param  `{[type]}` taskID - The ID of the solved task
+- Param  `{Object}` result - The result of the task's execution
 
 ```javascript	
     Client.prototype.taskList = function(tasks)  
 ```
 - Receive the list of available tasks
-- Param  {Array} tasks 
+- Param  `{Array}` tasks 
 
 ```javascript	
     Client.prototype.invalidTask = function(taskID) 
 ```	    
 - Thie client's list might be updated. It should get again the list.
-- Param  {Number} taskID
+- Param  `{Number}` taskID
 
 ```javascript
     Client.prototype.task = function(task 
 ```
 - Receive, from the server, a task to solve
-- Param  {Object} task 
+- Param  `{Object}` task 
 
 ```javascript	   
     Client.prototype.shouldUpdate = function() 
@@ -98,7 +99,7 @@
     var UI = function ()	   
 ```
 - Main UI Class. Handles user interaction, displays and updates data
-- Param  {Object} task 
+- Param  `{Object}` task 
 
 ```javascript	
     UI.prototype.bindEvents = function()
@@ -112,26 +113,26 @@
     UI.prototype.task2HTML = function(task)
 ```
 - Converts a task from an Object to a HTML element
-- Param  {Object} task
-- Return {jQuery} jQuery object with the HTML element
+- Param  `{Object}` task
+- Return `{jQuery}` jQuery object with the HTML element
 
 ```javascript
     UI.prototype.updateTasks = function(tasks)
 ```
 - Visually updates the tasks list.
-- Param  {Array} tasks - The tasks list
+- Param  `{Array}` tasks - The tasks list
 
 ```javascript	
     UI.prototype.addSolving = function(task)
 ```
 - Visually adds the given task to the solving tasks list.
-- Param {Object} task - the task to be added
+- Param `{Object}` task - the task to be added
 
 ```javascript	
     UI.prototype.removeSolving = function(taskID) 
 ```
 - Visually removes the given task, by its taskID, from the solving tasks list.
-- Param {Object} taskID - the taskID to remove
+- Param `{Object}` taskID - the taskID to remove
 	
 #####Worker.js
 
