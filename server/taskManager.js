@@ -49,12 +49,26 @@ var taskManager = function() {
             asigned: false,
         },
         {
-            id: 7,
-            name: 'The hardest one',
-            complexity: 500000000000,
-            date: new Date(),
+            id: 100,
+            name: 'BruteForce: SHA256 [12000000 - 12100000]',
+            complexity: 100000,
+            date: new Date(startDate.getTime() - 30000000),
             asigned: false,
         },
+        {
+            id: 101,
+            name: 'BruteForce: SHA256 [12100001 - 12200000]',
+            complexity: 100000,
+            date: new Date(startDate.getTime() - 30000000),
+            asigned: false,
+        },
+        {
+            id: 102,
+            name: 'BruteForce: SHA256 [12200001 - 12400000]',
+            complexity: 200000,
+            date: new Date(startDate.getTime() - 30000000),
+            asigned: false,
+        }
     ];
 
     // The code to be executed for each task
@@ -66,7 +80,9 @@ var taskManager = function() {
         4: "(function() { for(var i = 0; i<= 10000000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
         5: "(function() { for(var i = 0; i<= 100000000; ++i){var b = Math.sin(Math.sqrt(Math.random()));} return i;})();",
         6: "(function() { for(var i = 0; i<= 500000000; ++i){var b = Math.sin(Math.sqrt(Math.random()));} return i;})();",
-        7: "(function() { for(var i = 0; i<= 500000000000; ++i){var b = Math.sin(Math.sqrt(Math.random()));} return i;})();"
+        100: "(function() { for(var i = 12000000; i<= 12100000; ++i){if(CryptoJS.SHA256('' + i).toString() == 'f931c308fc5b60b421c09969912839dff2776957d98b8d2f91c554ed8fc80f78') return i;} return 'Password not found';})();",
+        101: "(function() { for(var i = 12100001; i<= 12200000; ++i){if(CryptoJS.SHA256('' + i).toString() == 'f931c308fc5b60b421c09969912839dff2776957d98b8d2f91c554ed8fc80f78') return i;} return 'Password not found';})();",
+        102: "(function() { for(var i = 12200001; i<= 12400000; ++i){if(CryptoJS.SHA256('' + i).toString() == 'f931c308fc5b60b421c09969912839dff2776957d98b8d2f91c554ed8fc80f78') return i;} return 'Password not found';})();",
     };
 };
 

@@ -1,3 +1,5 @@
+importScripts('../lib/crypto-min.js', '../lib/sha256-min.js');
+
 onmessage = function(e) {
     var action = e.data.action;
 
