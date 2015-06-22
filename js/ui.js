@@ -26,6 +26,9 @@ UI.prototype.bindEvents = function() {
     $(document).on('click', '.task', function() {
         client.asignTask($(this).attr('data-id'));
     });
+
+    // Auto-update task list on sort change
+    $('#sort').change(function() { $('#getTasks').trigger('click');})
 };
 
 UI.getTasks = function() {

@@ -74,7 +74,7 @@ io.on('connection', function(socket) {
             task.asigned = true;
 
             // Notify other clients that this task is being solved
-            io.sockets.emit('taskList', taskManager.tasks);
+            io.sockets.emit('shouldUpdate');
         } else {
             socket.emit('invalidTask', taskID);
         }
@@ -91,7 +91,7 @@ io.on('connection', function(socket) {
         taskManager.solveTask(data.taskID, data.result);
 
         // Notify other clients that this task has been solved
-        io.sockets.emit('taskList', taskManager.tasks);
+        io.sockets.emit('shouldUpdate');
     });
 });
 

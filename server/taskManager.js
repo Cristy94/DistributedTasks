@@ -23,20 +23,20 @@ var taskManager = function() {
         {
             id: 3,
             name: 'A difficult one',
-            complexity: 10000000,
+            complexity: 100000,
             date: new Date(startDate.getTime() + 3000),
             asigned: false,
         },
         {
             id: 4,
-            name: 'Is this possible?',
-            complexity: 10000000000,
+            name: 'This is medium',
+            complexity: 10000000,
             date: new Date(),
             asigned: false,
         },
         {
             id: 5,
-            name: 'This is medium',
+            name: 'Is this possible?',
             complexity: 100000000,
             date: new Date(startDate.getTime() + 30000000),
             asigned: false,
@@ -62,8 +62,8 @@ var taskManager = function() {
     this.taskCode = {
         1: "(function() { for(var i = 0; i<= 1000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
         2: "(function() { for(var i = 0; i<= 5000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
-        3: "(function() { for(var i = 0; i<= 10000000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
-        4: "(function() { for(var i = 0; i<= 10000000000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
+        3: "(function() { for(var i = 0; i<= 100000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
+        4: "(function() { for(var i = 0; i<= 10000000; ++i){var b = Math.sqrt(Math.random());} return i;})();",
         5: "(function() { for(var i = 0; i<= 100000000; ++i){var b = Math.sin(Math.sqrt(Math.random()));} return i;})();",
         6: "(function() { for(var i = 0; i<= 500000000; ++i){var b = Math.sin(Math.sqrt(Math.random()));} return i;})();",
         7: "(function() { for(var i = 0; i<= 500000000000; ++i){var b = Math.sin(Math.sqrt(Math.random()));} return i;})();"

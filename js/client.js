@@ -7,6 +7,7 @@ var Client = function (socket) {
     socket.on('taskList', this.taskList.bind(self));
     socket.on('invalidTask', this.invalidTask.bind(self));
     socket.on('task', this.task.bind(self));
+    socket.on('shouldUpdate', this.shouldUpdate.bind(self));
 };
 
 /****************
@@ -58,6 +59,13 @@ Client.prototype.taskList = function(tasks) {
 };
 
 /**
+ * Thie client's list might be updated. It should get again the list.
+ */
+Client.prototype.shouldUpdate = function() {
+    UI.getTasks();
+};
+
+/**
  * Receive an error saying that the task we have asked for is no longer available.
  * 
  * @param  {Number} taskID
@@ -72,7 +80,6 @@ Client.prototype.invalidTask = function(taskID) {
  * @param  {Object} task 
  */
 Client.prototype.task = function(task) {
-    this.requestTasks(); // Update the task list
     gui.addSolving(task); // Update the solving list
 
     var self = this;
